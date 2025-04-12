@@ -36,7 +36,7 @@ def main():
     items = load_items_from_csv(file_path)
 
     aco = ACO(items, ACOConfig())
-    solution, _ = aco.run()
+    solution, _ = aco.run(True)
 
     print("\nBest solution found:")
     aco.print_solution(0, solution)

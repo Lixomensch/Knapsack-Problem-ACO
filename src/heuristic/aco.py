@@ -49,7 +49,7 @@ class ACO:
                         f"Item {i + 1} {item.name} - Weight: {item.weight}, Value: {item.value}"
                     )
 
-    def run(self):
+    def run(self, verbose: bool = False):
         """
         Execute the Ant Colony Optimization algorithm.
 
@@ -78,6 +78,7 @@ class ACO:
             for ant in ants:
                 ant.update_pheromone(self.pheromone, self.config.q)
 
-            self.print_solution(iteration)
+            if verbose:
+                self.print_solution(iteration)
 
         return self.best_solution, self.best_value
