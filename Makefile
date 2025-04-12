@@ -1,6 +1,10 @@
 include .env
 .PHONY: pylint isort activeblack format check prepare-commit
 
+#* Python Rules
+run:
+	python src/main.py
+
 #* Git Rules
 isort:
 	isort --settings-path=$(MAKE_CONFIG_FILE) $(FORMAT_CHECK_SRC)
