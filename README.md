@@ -1,10 +1,6 @@
-**Knapsack Problem with ACO (Ant Colony Optimization)**
-
 # 🐜 Knapsack Problem with Ant Colony Optimization (ACO)
 
 This project implements a heuristic solution for the **Knapsack Problem** using the **Ant Colony Optimization (ACO)** algorithm, with data input from a CSV file and formatted output displaying the best selected items.
-
-## 📦 Project Structure
 
 ## 🧠 Algorithm: Ant Colony Optimization (ACO)
 
