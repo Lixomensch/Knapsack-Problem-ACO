@@ -21,8 +21,6 @@ class Ant:
         ----------
         items : list of Item
             List of items to be optimized.
-        max_weight : int
-            Maximum weight the knapsack can carry.
         pheromone : list of float
             Pheromone levels for each item.
         config : ACOConfig

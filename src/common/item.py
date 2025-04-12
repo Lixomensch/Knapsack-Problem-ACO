@@ -13,6 +13,8 @@ class Item:
 
         Parameters
         ----------
+        name : str
+            The name of the item.
         weight : int
             The weight of the item.
         value : int

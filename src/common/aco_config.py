@@ -10,6 +10,8 @@ class ACOConfig:
 
     Attributes
     ----------
+    max_weight : int
+        Maximum weight of the knapsack.
     alpha : float
         Influence of pheromone on decision-making. Higher means more influence.
     beta : float

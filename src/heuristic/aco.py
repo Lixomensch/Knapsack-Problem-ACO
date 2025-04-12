@@ -17,10 +17,8 @@ class ACO:
         ----------
         items : list of Item
             List of items to be optimized.
-        max_weight : int
-            Maximum weight of the knapsack.
         config : ACOConfig
-            Configuration parameters for the ACO algorithm.
+            Configuration parameters for the ACO algorithm (alpha, beta, etc.).
         """
         self.items = items
         self.config = config

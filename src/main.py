@@ -32,7 +32,7 @@ def main():
     parameters, runs the optimization, and prints the best solution.
     """
 
-    file_path = "data/data.csv"
+    file_path = "data/server.csv"
     items = load_items_from_csv(file_path)
 
     aco = ACO(items, ACOConfig())

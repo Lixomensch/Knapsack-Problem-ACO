@@ -1,7 +1,6 @@
 # Ignore temporary and backup files
 *.temp
 *.log
-*.csv
 *.text
 *.tmp
 *.env
@@ -49,8 +48,6 @@ config/local/*
 !config/local/.gitkeep
 target/
 log/*
-data/*
-!data/.gitkeep
 tests/*
 test/*
 backup/*
