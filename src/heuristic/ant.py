@@ -11,7 +11,6 @@ class Ant:
     def __init__(
         self,
         items: list[Item],
-        max_weight: int,
         pheromone: list[float],
         config: ACOConfig,
     ):
@@ -30,7 +29,6 @@ class Ant:
             Configuration parameters for the ACO algorithm (alpha, beta, etc.).
         """
         self.items = items
-        self.max_weight = max_weight
         self.pheromone = pheromone
         self.config = config
         self.solution = [0] * len(items)
@@ -57,7 +55,7 @@ class Ant:
         random.shuffle(indices)
 
         for i in indices:
-            if self.total_weight + self.items[i].weight <= self.max_weight:
+            if self.total_weight + self.items[i].weight <= self.config.max_weight:
                 pheromone_level = self.pheromone[i] ** self.config.alpha
                 heuristic = (
                     self.items[i].value / self.items[i].weight

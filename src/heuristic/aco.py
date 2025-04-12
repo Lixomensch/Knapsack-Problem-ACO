@@ -1,14 +1,15 @@
 """Ant Colony Optimization algorithm for the knapsack problem."""
 
 import numpy as np
-from ant import Ant
 from common import ACOConfig, Item
+
+from .ant import Ant
 
 
 class ACO:
     """Ant Colony Optimization algorithm for the knapsack problem."""
 
-    def __init__(self, items: list[Item], max_weight: int, config: ACOConfig):
+    def __init__(self, items: list[Item], config: ACOConfig):
         """
         Initialize the ACO object.
 
@@ -22,7 +23,6 @@ class ACO:
             Configuration parameters for the ACO algorithm.
         """
         self.items = items
-        self.max_weight = max_weight
         self.config = config
         self.pheromone = np.ones(len(items))
         self.best_solution = None
@@ -40,14 +40,16 @@ class ACO:
             Current solution indicating selected items.
         """
         print(
-            f"Iteration {iteration + 1}/{self.config.n_iterations} | "
+            f"{f'Iteration {iteration + 1}/{self.config.n_iterations} | ' if iteration else ''}"
             f"Best Value: {self.best_value}"
         )
         if solution:
             for i, selected in enumerate(solution):
                 if selected:
                     item = self.items[i]
-                    print(f"Item {i+1} - Weight: {item.weight}, Value: {item.value}")
+                    print(
+                        f"Item {i + 1} {item.name} - Weight: {item.weight}, Value: {item.value}"
+                    )
 
     def run(self):
         """
@@ -62,7 +64,7 @@ class ACO:
         """
         for iteration in range(self.config.n_iterations):
             ants = [
-                Ant(self.items, self.max_weight, self.pheromone, self.config)
+                Ant(self.items, self.pheromone, self.config)
                 for _ in range(self.config.n_ants)
             ]
 
@@ -78,6 +80,6 @@ class ACO:
             for ant in ants:
                 ant.update_pheromone(self.pheromone, self.config.q)
 
-            self.print_solution(iteration, self.best_solution)
+            self.print_solution(iteration)
 
         return self.best_solution, self.best_value

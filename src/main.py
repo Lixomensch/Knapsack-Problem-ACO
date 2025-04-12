@@ -1,7 +1,7 @@
 """Main module for the Ant Colony Optimization algorithm."""
 
 import pandas as pd
-from common import Item
+from common import ACOConfig, Item
 from heuristic import ACO
 
 
@@ -20,7 +20,7 @@ def load_items_from_csv(csv_path):
         A list of Item objects loaded from the CSV file.
     """
     df = pd.read_csv(csv_path)
-    items = [Item(row["weight"], row["value"]) for _, row in df.iterrows()]
+    items = [Item(row["name"], row["weight"], row["value"]) for _, row in df.iterrows()]
     return items
 
 
@@ -32,18 +32,14 @@ def main():
     parameters, runs the optimization, and prints the best solution.
     """
 
-    file_path = "teste.csv"
-    max_weight = 50
+    file_path = "data/data.csv"
     items = load_items_from_csv(file_path)
 
-    aco = ACO(items, max_weight, n_ants=20, n_iterations=50)
-    solution, value = aco.run()
+    aco = ACO(items, ACOConfig())
+    solution, _ = aco.run()
 
     print("\nBest solution found:")
-    for i, selected in enumerate(solution):
-        if selected:
-            print(f"Item {i+1} - Weight: {items[i].weight}, Value: {items[i].value}")
-    print(f"Total value: {value}")
+    aco.print_solution(0, solution)
 
 
 if __name__ == "__main__":

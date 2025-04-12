@@ -29,9 +29,10 @@ class ACOConfig:
         Initializes ACO configuration with provided parameters.
     """
 
+    max_weight: int = 100
     alpha: float = 1.0
     beta: float = 2.0
     evaporation_rate: float = 0.5
     q: float = 100.0
     n_ants: int = 10
-    n_iterations: int = 100
+    n_iterations: int = 300

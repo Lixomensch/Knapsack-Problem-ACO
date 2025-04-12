@@ -1,3 +1,3 @@
-from aco import ACO
+from .aco import ACO
 
 __all__ = ["ACO"]
